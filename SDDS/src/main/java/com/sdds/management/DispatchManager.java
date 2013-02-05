@@ -4,7 +4,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sdds.Manager;
+import com.sdds.SDDSManager;
 import com.sdds.impl.Dispatcher;
 import com.sdds.impl.ExternalDispatcher;
 import com.sdds.impl.ExternalReceiver;
@@ -23,13 +23,13 @@ public class DispatchManager {
     private InternalXMLDispatcher internalXMLDispatcher = null;
     private List<ExternalDispatcher> externalDispatchers = null;
     private List<ExternalReceiver> externalReceivers = null;
-    private Manager manager;
+    private SDDSManager manager;
     
 	/**
 	 * Constructor
 	 * @param manager
 	 */
-	public DispatchManager(Manager manager) {
+	public DispatchManager(SDDSManager manager) {
 		this.manager = manager;
 		this.externalDispatchers = new ArrayList<ExternalDispatcher>();
 		this.externalReceivers = new ArrayList<ExternalReceiver>();

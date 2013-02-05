@@ -5,7 +5,7 @@ import java.net.InetAddress;
 import java.net.MulticastSocket;
 import java.net.Socket;
 
-import com.sdds.Manager;
+import com.sdds.SDDSManager;
 import com.sdds.util.Logger;
 import com.sdds.util.NetUtil;
 
@@ -16,14 +16,14 @@ import com.sdds.util.NetUtil;
  */
 public class BroadcastListener implements Runnable {
 	boolean running = false;
-	private Manager manager;
+	private SDDSManager manager;
 	private Thread theThread;
 
 	/**
 	 * Constructor
 	 * @param manager
 	 */
-	public BroadcastListener(Manager manager) {
+	public BroadcastListener(SDDSManager manager) {
 		this.manager = manager;
 		theThread = new Thread(this);
 		theThread.setDaemon(true);

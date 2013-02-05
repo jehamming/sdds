@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-import com.sdds.Manager;
+import com.sdds.SDDSManager;
 import com.sdds.network.ManagementSourceId;
 import com.sdds.util.Logger;
 import com.sdds.util.XMLUtil;
@@ -17,7 +17,7 @@ import com.sdds.util.XMLUtil;
  */
 public class ExternalDispatcher extends Dispatcher {
 	private Socket socket;
-	private Manager manager;
+	private SDDSManager manager;
 	private String destinationUUID;
 	private ObjectOutputStream oos;
 	private boolean sendSourceId;
@@ -30,7 +30,7 @@ public class ExternalDispatcher extends Dispatcher {
      * @param destinationUUID
      * @param sendSourceId
      */
-    public ExternalDispatcher(Manager manager, Socket socket, String destinationUUID, boolean sendSourceId) {
+    public ExternalDispatcher(SDDSManager manager, Socket socket, String destinationUUID, boolean sendSourceId) {
         super("DataTxRx");
         this.socket = socket;
         this.manager = manager;

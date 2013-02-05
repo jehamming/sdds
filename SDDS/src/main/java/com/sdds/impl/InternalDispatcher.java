@@ -3,7 +3,7 @@ package com.sdds.impl;
 import java.util.List;
 
 import com.sdds.Consumer;
-import com.sdds.Manager;
+import com.sdds.SDDSManager;
 import com.sdds.management.ConsumerManagementInfo;
 import com.sdds.util.Logger;
 
@@ -14,13 +14,13 @@ import com.sdds.util.Logger;
  */
 public class InternalDispatcher extends Dispatcher {
 
-	private Manager manager;
+	private SDDSManager manager;
 	
     /**
      * Constructor
      * @param manager
      */
-    public InternalDispatcher(Manager manager) {
+    public InternalDispatcher(SDDSManager manager) {
         super("Internal Dispatcher");
         this.manager = manager;
     }

@@ -15,7 +15,7 @@ import java.awt.event.WindowListener;
 
 import javax.swing.DefaultListModel;
 
-import com.sdds.Manager;
+import com.sdds.SDDSManager;
 
 /**
  *
@@ -26,10 +26,10 @@ public class ConsumerWindow extends javax.swing.JFrame {
 	private static final long serialVersionUID = 4675786827419745416L;
 	private ConsumerWindowHelper helper;
     private String type;
-    private Manager manager;
+    private SDDSManager manager;
 
     /** Creates new form ConsumerWindow */
-    public ConsumerWindow(String type, Manager manager) {
+    public ConsumerWindow(String type, SDDSManager manager) {
         this.type = type;
         this.manager = manager;
         setTitle("C:" + type);
@@ -209,7 +209,7 @@ public class ConsumerWindow extends javax.swing.JFrame {
 		});
     }
     
-    public Manager getManager() {
+    public SDDSManager getManager() {
 		return manager;
 	}
     

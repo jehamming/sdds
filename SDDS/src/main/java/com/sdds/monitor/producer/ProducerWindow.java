@@ -11,7 +11,7 @@
 
 package com.sdds.monitor.producer;
 
-import com.sdds.Manager;
+import com.sdds.SDDSManager;
 
 /**
  * 
@@ -22,7 +22,7 @@ public class ProducerWindow extends javax.swing.JFrame {
 	private ProducerWindowHelper helper;
 	private String type;
 	private String xmlSkeleton;
-	private Manager manager;
+	private SDDSManager manager;
 	private javax.swing.JButton btnProduce;
 	private javax.swing.JScrollPane jScrollPane1;
 	private javax.swing.JTextArea taXML;

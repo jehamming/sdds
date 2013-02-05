@@ -3,7 +3,7 @@ package com.uri;
 import junit.framework.TestCase;
 
 import com.sdds.Consumer;
-import com.sdds.Manager;
+import com.sdds.SDDSManager;
 import com.sdds.util.Logger;
 
 public class TestConsumers extends TestCase {
@@ -11,7 +11,7 @@ public class TestConsumers extends TestCase {
 
     public void testProduceConsume() throws InterruptedException {
         consumed = false;
-        Manager mgr = Manager.getInstance();
+        SDDSManager mgr = SDDSManager.getInstance();
         mgr.getConsumerManager().addConsumer(new Consumer<TestObject>(){
             @Override
             public void consume(TestObject object) {

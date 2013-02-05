@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import com.sdds.Consumer;
-import com.sdds.Manager;
+import com.sdds.SDDSManager;
 
 @SuppressWarnings("serial")
 public class ChatWindow extends JFrame {
@@ -98,7 +98,7 @@ public class ChatWindow extends JFrame {
 
 	protected void sendText(String s) {
 		ChatObject co = new ChatObject(s);
-		Manager.getInstance().produce(co);
+		SDDSManager.getInstance().produce(co);
 	}
 
 	public void addText(String message) {
@@ -114,7 +114,7 @@ public class ChatWindow extends JFrame {
 
 	private void initializeConsumer() {
 		consumer = new ChatConsumer(this);
-		Manager.getInstance().getConsumerManager().addConsumer(consumer);
+		SDDSManager.getInstance().getConsumerManager().addConsumer(consumer);
 	}
 
 	public static void main(String[] args) {

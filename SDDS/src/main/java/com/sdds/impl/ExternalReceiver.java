@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
 
-import com.sdds.Manager;
+import com.sdds.SDDSManager;
 import com.sdds.network.ManagementSourceId;
 import com.sdds.util.Logger;
 import com.sdds.util.XMLUtil;
@@ -17,7 +17,7 @@ import com.sdds.util.XMLUtil;
 public class ExternalReceiver implements Runnable {
 
 	private Socket socket;
-	private Manager manager;
+	private SDDSManager manager;
 
 	/**
 	 * Constructor
@@ -25,7 +25,7 @@ public class ExternalReceiver implements Runnable {
 	 * @param manager
 	 * @param socket
 	 */
-	public ExternalReceiver(Manager manager, Socket socket) {
+	public ExternalReceiver(SDDSManager manager, Socket socket) {
 		this.socket = socket;
 		this.manager = manager;
 		Thread t = new Thread(this);
@@ -45,6 +45,9 @@ public class ExternalReceiver implements Runnable {
 			ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
 			while (socket.isConnected() && !socket.isInputShutdown()) {
 				String xml = (String) ois.readObject();
+				// Dispatch in XML form
+				manager.getDispatchManager().dispatch(xml);
+				
 				// Convert XML to object
 				Object o = XMLUtil.fromXML(xml);
 				// Check for Message type
@@ -53,11 +56,9 @@ public class ExternalReceiver implements Runnable {
 					Message m = (Message) o;
 						if ( !m.getHeader().getPath().contains(manager.getUuid() ) ) {
 							// Dispatch Internal
-							manager.getDispatchManager().dispatch(m, false);
-							// Dispatch in XML form
-							manager.getDispatchManager().dispatch(xml);
+							manager.getDispatchManager().dispatch(m, false);							
 							// Relay message to other listeners
-							Manager.getInstance().getDispatchManager().relayMessage(m);					
+							SDDSManager.getInstance().getDispatchManager().relayMessage(m);					
 						} else {
 							Logger.info(this, "Not relaying instance of " + m.getContent().getClass().getName() + ", already passed this Manager or originated from here");
 						}

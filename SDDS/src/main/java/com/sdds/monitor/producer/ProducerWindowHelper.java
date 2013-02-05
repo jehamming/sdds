@@ -4,7 +4,7 @@
  */
 package com.sdds.monitor.producer;
 
-import com.sdds.Manager;
+import com.sdds.SDDSManager;
 
 /**
  *
@@ -15,9 +15,9 @@ public class ProducerWindowHelper {
     @SuppressWarnings("unused")
 	private ProducerWindow window;
     @SuppressWarnings("unused")
-	private Manager manager;
+	private SDDSManager manager;
 
-    public ProducerWindowHelper(ProducerWindow w, Manager manager) {
+    public ProducerWindowHelper(ProducerWindow w, SDDSManager manager) {
         this.window = w;
         this.manager = manager;
     }

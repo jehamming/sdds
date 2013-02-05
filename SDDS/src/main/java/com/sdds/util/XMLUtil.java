@@ -55,7 +55,13 @@ public class XMLUtil {
 	 * @return
 	 */
 	public static Object fromXML( String xml ) {
-		return xstream.fromXML(xml);
+		Object obj = null; 
+		try {
+			obj = xstream.fromXML(xml);
+		} catch (Exception e) {
+			Logger.info("XMLUtil.fromXML: Could not create Object from XML:" + e.getMessage());
+		}
+		return obj;
 	}
 
 }

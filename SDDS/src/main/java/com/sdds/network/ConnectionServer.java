@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import com.sdds.Manager;
+import com.sdds.SDDSManager;
 import com.sdds.util.Logger;
 import com.sdds.util.NetUtil;
 
@@ -16,7 +16,7 @@ import com.sdds.util.NetUtil;
 public class ConnectionServer implements Runnable {
 	private boolean stopServer = false;
 	private int port;
-	private Manager manager;
+	private SDDSManager manager;
 	private Thread theThread;
 
 	/**
@@ -25,7 +25,7 @@ public class ConnectionServer implements Runnable {
 	 * @param manager
 	 * @param port
 	 */
-	public ConnectionServer(Manager manager, int port) {
+	public ConnectionServer(SDDSManager manager, int port) {
 		this.port = port;
 		this.manager = manager;
 		theThread = new Thread(this);

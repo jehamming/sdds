@@ -1,6 +1,6 @@
 package com.uri;
 
-import com.sdds.Manager;
+import com.sdds.SDDSManager;
 import com.sdds.util.Logger;
 
 public class SimpleProducer implements Runnable {
@@ -9,11 +9,11 @@ public class SimpleProducer implements Runnable {
 	
 	@Override
 	public void run() {
-		Manager manager; 
+		SDDSManager manager; 
 		if ( realm == null ) {
-			manager = Manager.getInstance();
+			manager = SDDSManager.getInstance();
 		} else {
-			manager = Manager.getInstance(realm);
+			manager = SDDSManager.getInstance(realm);
 		}
 		int count = 1;
 		while ( true ) {

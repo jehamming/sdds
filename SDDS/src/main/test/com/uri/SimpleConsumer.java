@@ -1,7 +1,7 @@
 package com.uri;
 
 import com.sdds.Consumer;
-import com.sdds.Manager;
+import com.sdds.SDDSManager;
 import com.sdds.util.Logger;
 
 public class SimpleConsumer extends Consumer<TestObject> implements Runnable {
@@ -20,7 +20,7 @@ public class SimpleConsumer extends Consumer<TestObject> implements Runnable {
 
 	@Override
 	public void run() {
-		Manager m = Manager.getInstance();
+		SDDSManager m = SDDSManager.getInstance();
 		m.getConsumerManager().addConsumer(this);
 		while ( true ) {
 			try {
